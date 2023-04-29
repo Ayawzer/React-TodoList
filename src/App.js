@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+// import { User } from './Users/UserComp';
+// import { users } from './Users/User';
+// import { planets } from './Planets/Planets';
+// import { Planet } from './Planets/PlanetsComp';
+import { useState } from 'react';
+
+
+const TutorialEnd = () => {
+  const time = "1:29:32"; //Wpisz w ktorej minucie skonczyles tutorial ok
+  return (
+      <p>Skonczylem tutorial w {time} </p>
+  );
+}
+
 
 function App() {
+  
+  // jak wrocisz napisz jeszcze raz variable count z useState hookiem a pozniej zaimplementuj buttony zeby działały, wszystko useState hookiem
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <TutorialEnd />
+      <button> Increase </button>
+      <button> Decrease </button>
+      <button> Set to zero </button>
+
+      {/* {count} */}
     </div>
   );
 }
 
 export default App;
+
