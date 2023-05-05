@@ -16,55 +16,48 @@ const TutorialEnd = () => {
 
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+ // sprobuj napsiac sam cala aplikacje todolist od nowa, oagarniasz logike wiec nie powinno byc problemow ok style tez sobie ogarnij gdzie jaki dac
   const [newTask, setNewTask] = useState('');
+  const [todoList, setTodoList] = useState([]);
 
-  const handleChange = (event) => {
+  const changeHandler = (event) => {
     setNewTask(event.target.value);
   }
-
-  const addTask = () => {
+  
+  const addNewTask = () => {
     const task = {
-      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
+      id: todoList.length === 0 ? 1 : todoList[todoList.length-1].id + 1,
       taskName: newTask,
       completed: false,
     }
-    if (newTask !== "") {
+    
+    if (newTask !== '') {
       setTodoList([...todoList, task]);
     }
   }
 
   const deleteTask = (id) => {
-    const newArrey = todoList.filter((task) => {
-      return task.id !== id;
-    })
-    setTodoList(newArrey)
+    const filteredArray = todoList.filter(task => task.id !== id)
+    setTodoList(filteredArray);
   }
 
   const updateTask = (id, completed) => {
-    const newArray = todoList.map((task) => {
-      if (id === task.id) {
-        return {
-          ...task,
-          completed: completed,
-        };
-      } else {
-        return task;
-      }
-    })
-    setTodoList(newArray);
+    const updatedArray = todoList.map(task => task.id === id ? {...task, completed:completed} : task)
+    setTodoList(updatedArray);
   }
 
   return (
     <div className={styles.App}>
       <TutorialEnd />
       <div className={styles.addTask}>
-        <input onChange={handleChange}/>
-        <button onClick={addTask}> Add Task </button>
+        <input type='text' onChange={changeHandler} />
+        <button onClick={addNewTask} > Dodaj </button>
       </div>
       <div className={styles.list}>
         {todoList.map((task, key) => {
-          return <Task  taskName={task.taskName} id={task.id} deleteTask={deleteTask} completed={task.completed} key={key} updateTask={updateTask} />;
+          return (
+            <Task key={key} name={task.taskName} id={task.id} completed={task.completed} deleteTask={deleteTask} updateTask={updateTask} />
+          );
         })}
       </div>
     </div>
