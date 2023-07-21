@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Task } from './Tasks/Task';
 
 function App() {
- // sprobuj napsiac sam cala aplikacje todolist od nowa, oagarniasz logike wiec nie powinno byc problemow ok style tez sobie ogarnij gdzie jaki dac
   const [newTask, setNewTask] = useState('');
   const [todoList, setTodoList] = useState([]);
 
