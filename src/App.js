@@ -1,19 +1,6 @@
 import styles from './App.module.css';
-// import { User } from './Users/UserComp';
-// import { users } from './Users/User';
-// import { planets } from './Planets/Planets';
-// import { Planet } from './Planets/PlanetsComp';
 import { useState } from 'react';
 import { Task } from './Tasks/Task';
-
-
-const TutorialEnd = () => {
-  const time = "2:06:36"; //Wpisz w ktorej minucie skonczyles tutorial ok
-  return (
-      <p>Skonczylem tutorial w {time} </p>
-  );
-}
-
 
 function App() {
  // sprobuj napsiac sam cala aplikacje todolist od nowa, oagarniasz logike wiec nie powinno byc problemow ok style tez sobie ogarnij gdzie jaki dac
@@ -48,7 +35,6 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <TutorialEnd />
       <div className={styles.addTask}>
         <input type='text' onChange={changeHandler} />
         <button onClick={addNewTask} > Dodaj </button>
